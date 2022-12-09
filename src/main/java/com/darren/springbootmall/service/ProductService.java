@@ -1,6 +1,6 @@
 package com.darren.springbootmall.service;
 
-import com.darren.springbootmall.constant.ProductCategory;
+import com.darren.springbootmall.dao.ProductQueryParmas;
 import com.darren.springbootmall.dto.ProductRequest;
 import com.darren.springbootmall.model.Product;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> getProducts(ProductCategory category,String search);
+    List<Product> getProducts(ProductQueryParmas productQueryParmas);
 
     Product getProductById(Integer productId);
 
