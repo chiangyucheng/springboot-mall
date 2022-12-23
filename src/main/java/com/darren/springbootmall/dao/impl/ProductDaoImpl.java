@@ -24,6 +24,28 @@ public class ProductDaoImpl implements ProductDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
+    public Integer countProduct(ProductQueryParmas productQueryParmas) {
+        String sql = "SELECT count(*) FROM product WHERE 1=1";
+
+        Map<String, Object> map = new HashMap<>();
+
+        //查詢條件
+        if(productQueryParmas.getCategory() != null){
+            sql = sql + " AND category = :category";
+            map.put("category", productQueryParmas.getCategory().name());
+        }
+
+        if(productQueryParmas.getSearch() != null){
+            sql = sql +" AND product_name LIKE :search";
+            map.put("search", "%" + productQueryParmas.getSearch() + "%");
+        }
+
+        Integer total = namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
+
+        return total;
+    }
+
+    @Override
     public List<Product> getProducts(ProductQueryParmas productQueryParmas) {
 
         String sql = "SELECT  product_id, product_name, category, image_url, price, stock, description, " +
@@ -48,9 +70,6 @@ public class ProductDaoImpl implements ProductDao {
 
         //分頁
         sql = sql + " LIMIT :limit OFFSET :offset";
-
-        System.out.println(productQueryParmas.getLimit());
-        System.out.println(productQueryParmas.getOffset());
 
         map.put("limit",productQueryParmas.getLimit());
         map.put("offset",productQueryParmas.getOffset());
