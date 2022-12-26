@@ -34,8 +34,8 @@ public class ProductController {
             @RequestParam(defaultValue = "desc") String sort,
             //分業Pagination
             @RequestParam(defaultValue = "5") @Max(1000) @Min(0) Integer limit,
-            @RequestParam(defaultValue = "0") @Min(0) Integer offset
-    ){
+            @RequestParam(defaultValue = "0") @Min(0) Integer offset){
+
         ProductQueryParmas productQueryParmas = new ProductQueryParmas();
         productQueryParmas.setCategory(category);
         productQueryParmas.setSearch(search);
@@ -61,6 +61,7 @@ public class ProductController {
 
     @GetMapping("/products/{productId}")
    public ResponseEntity<Product> getProduct(@PathVariable Integer productId){
+
         Product product = productService.getProductById(productId);
 
         if(product != null){
@@ -98,7 +99,6 @@ public class ProductController {
 
         return  ResponseEntity.status(HttpStatus.OK).body(updatedProduct);
     }
-
 
     @DeleteMapping("/products/{productId}")
     public ResponseEntity<?> deletaProduct(@PathVariable Integer productId){
