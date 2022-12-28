@@ -1,10 +1,15 @@
 package com.darren.springbootmall.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class User {
     private Integer userId;
+//    @JsonProperty("e_mail")用來指定轉成Json後的KEY值
     private String email;
+    @JsonIgnore
     private String password;
     private Date createdDate;
     private Date lastModifiedDate;
