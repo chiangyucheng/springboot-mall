@@ -1,5 +1,6 @@
 package com.darren.springbootmall.controller;
 
+import com.darren.springbootmall.dto.UserLoginRequest;
 import com.darren.springbootmall.dto.UserRegisterRequest;
 import com.darren.springbootmall.model.User;
 import com.darren.springbootmall.service.UserService;
@@ -27,5 +28,12 @@ public class UserController {
 
        return ResponseEntity.status(HttpStatus.CREATED).body(user);
 
+    }
+
+    @PostMapping("/users/login")
+    public  ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest){
+
+        User user = userService.login(userLoginRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }

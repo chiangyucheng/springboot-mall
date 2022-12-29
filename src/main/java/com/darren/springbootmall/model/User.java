@@ -9,7 +9,7 @@ public class User {
     private Integer userId;
 //    @JsonProperty("e_mail")用來指定轉成Json後的KEY值
     private String email;
-    @JsonIgnore
+    @JsonIgnore//轉為Json回傳時將被隱藏
     private String password;
     private Date createdDate;
     private Date lastModifiedDate;
