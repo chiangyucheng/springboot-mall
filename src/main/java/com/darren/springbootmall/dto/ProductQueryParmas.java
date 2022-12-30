@@ -1,4 +1,4 @@
-package com.darren.springbootmall.dao;
+package com.darren.springbootmall.dto;
 
 import com.darren.springbootmall.constant.ProductCategory;
 

@@ -1,7 +1,7 @@
 package com.darren.springbootmall.dao.impl;
 
 import com.darren.springbootmall.dao.ProductDao;
-import com.darren.springbootmall.dao.ProductQueryParmas;
+import com.darren.springbootmall.dto.ProductQueryParmas;
 import com.darren.springbootmall.dto.ProductRequest;
 import com.darren.springbootmall.model.Product;
 import com.darren.springbootmall.rowmapper.ProductRowMapper;

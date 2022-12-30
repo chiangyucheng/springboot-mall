@@ -1,6 +1,6 @@
 package com.darren.springbootmall.dao;
 
-import com.darren.springbootmall.constant.ProductCategory;
+import com.darren.springbootmall.dto.ProductQueryParmas;
 import com.darren.springbootmall.dto.ProductRequest;
 import com.darren.springbootmall.model.Product;
 
